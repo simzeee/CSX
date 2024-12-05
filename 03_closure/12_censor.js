@@ -38,3 +38,29 @@ const censor = () => {
 // changeScene('dogs', 'cats');
 // changeScene('quick', 'slow');
 // console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // should log: 'The slow, brown fox jumps over the lazy cats.'
+
+// CSX solution
+
+// ADD CODE HERE
+const censor2 = () => {
+  const stringTracker = {};
+
+  return (stringOne, stringTwo) => {
+    if (stringTwo) {
+      stringTracker[stringOne] = stringTwo;
+      return;
+    }
+
+    Object.keys(stringTracker).forEach((key) => {
+      console.log(key);
+      stringOne = stringOne.replace(key, stringTracker[key]);
+    });
+    return stringOne;
+  };
+};
+
+// Uncomment these to check your work!
+const changeScene = censor();
+changeScene("dogs", "cats");
+changeScene("quick", "slow");
+console.log(changeScene("The quick, brown fox jumps over the lazy dogs.")); // should log: 'The slow, brown fox jumps over the lazy cats.'
