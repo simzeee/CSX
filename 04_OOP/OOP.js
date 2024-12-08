@@ -36,22 +36,23 @@ const sandra = personFromPersonStore("Sandra", 26);
 sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
 
 function PersonConstructor() {
-  this.greet = function () {
-    console.log("hello");
-  };
+  this.greet = function() {
+    console.log('hello');
+  }
+  this.introduce = () => console.log(`Hi, my name is ${this.name}`)
 }
 
 function personFromConstructor(name, age) {
-  // add code here
-  const result = new PersonConstructor(name, age);
-  result.name = name;
-  result.age = age;
-  return result;
+  const person = new PersonConstructor();
+  person.name = name;
+  person.age = age;
+  return person;
 }
 
-const mike = personFromConstructor("Mike", 30);
+const mike = personFromConstructor('Mike', 30);
 
-// Uncomment these lines to check your work!
-// console.log(mike.name); // -> Logs 'Mike'
-// console.log(mike.age); // -> Logs 30
-// mike.greet(); // -> Logs 'hello'
+// add code here
+
+
+// Uncomment this line to check your work!
+// mike.introduce(); // -> Logs 'Hi, my name is Mike'
